@@ -1,9 +1,19 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Navbar from './components/Navbar';
+import {publicRoutes} from './routes/PublicRoutes';
 
 function App() {
   return (
     <div className="App">
-      <button className='bg-green-400'>Ok</button>
+      <Navbar>
+        <Routes>
+            {
+              publicRoutes.map(({path, Component}, index) => <Route key={index} path={path} element={<Component/>} />)
+            }
+        </Routes>
+      </Navbar>
+      
     </div>
   );
 }
